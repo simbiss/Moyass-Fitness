@@ -1,21 +1,28 @@
-MoyassFitness
-Installation et Exécution
+markdown
+Copy code
+# MoyassFitness
+
+## Installation et Exécution
+
 Ce guide vous explique comment configurer votre environnement pour exécuter l'application React Native MoyassFitness.
 
-Prérequis
+### Prérequis
+
 Assurez-vous d'avoir les outils suivants installés sur votre machine :
 
-Node.js (version LTS recommandée) et npm
-Java Development Kit (JDK) 17
-Android Studio avec le SDK Android
-Étape 1 : Installation des outils nécessaires
-1.1 Installer Node.js et npm
-Téléchargez et installez Node.js depuis nodejs.org.
-Vérifiez l'installation en exécutant dans le terminal :
-bash
-Copy code
-node -v
-npm -v
+1. **Node.js** (version LTS recommandée) et npm
+2. **Java Development Kit (JDK) 17**
+3. **Android Studio** avec le SDK Android
+
+### Étape 1 : Installation des outils nécessaires
+
+#### 1.1 Installer Node.js et npm
+
+- Téléchargez et installez Node.js depuis [nodejs.org](https://nodejs.org/).
+- Vérifiez l'installation en exécutant dans le terminal :
+  ```bash
+  node -v
+  npm -v
 1.2 Installer JDK 17
 Téléchargez et installez JDK 17 depuis Eclipse Adoptium ou Oracle.
 Configurez la variable d'environnement JAVA_HOME :
@@ -28,7 +35,7 @@ Installez les composants recommandés, y compris le SDK Android et les outils de
 Configurez la variable d'environnement ANDROID_HOME :
 Créez une variable système nommée ANDROID_HOME pointant vers le répertoire du SDK Android (par exemple, C:\Users\VotreNomUtilisateur\AppData\Local\Android\Sdk).
 Ajoutez les chemins suivants à la variable Path :
-text
+bash
 Copy code
 %ANDROID_HOME%\platform-tools
 %ANDROID_HOME%\emulator
@@ -89,4 +96,12 @@ Les contributions sont les bienvenues ! Merci de soumettre une pull request pour
 
 Licence
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+
+perl
+Copy code
+
+Tu peux maintenant copier-coller ce texte directement dans ton fichier `README.md` sur GitHub, et tout sera formaté correctement en Markdown. Cela permettra aux autres développeurs de suivre les étapes pour installer, configurer et exécuter ton projet React Native sans problème.
+
+
+
 
