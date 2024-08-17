@@ -1,11 +1,11 @@
 
-# MoyassFitness
+# 🏋️‍♂️ MoyassFitness
 
-## Installation et Exécution
+## 🚀 Installation et Exécution
 
 Ce guide vous explique comment configurer votre environnement pour exécuter l'application React Native MoyassFitness.
 
-### Prérequis
+### 🔧 Prérequis
 
 Assurez-vous d'avoir les outils suivants installés sur votre machine :
 
@@ -56,21 +56,21 @@ npm install
 
 ### Étape 3 : Exécution du projet
 
-#### Démarrer le serveur Metro
+#### 🚀 Démarrer le serveur Metro
 
 Pour démarrer le serveur Metro, utilisez la commande suivante :
 
 npm start
 
-#### Exécuter l'application sur Android
+#### 📱 Exécuter l'application sur Android
 
 Assurez-vous qu'un émulateur Android est lancé ou qu'un appareil est connecté en mode débogage USB. Dans une autre fenêtre de terminal, exécutez :
 
 npx react-native run-android
 
-## Résolution des problèmes courants
+## 🛠️ Résolution des problèmes courants
 
-### Arrêter un port déjà utilisé
+### 🚪 Arrêter un port déjà utilisé
 
 Si vous rencontrez l'erreur EADDRINUSE: address already in use :::8081, cela signifie que le port 8081 est déjà utilisé. Voici comment le libérer :
 
@@ -86,7 +86,7 @@ Si vous rencontrez l'erreur EADDRINUSE: address already in use :::8081, cela sig
    
    Remplacez <PID> par le numéro du PID trouvé.
 
-### Changer le port du serveur Metro
+### 🔄 Changer le port du serveur Metro
 
 Si vous préférez utiliser un autre port, vous pouvez démarrer le serveur Metro sur un port différent :
 
@@ -96,10 +96,10 @@ Assurez-vous de spécifier ce port lors de l'exécution de l'application :
 
 npx react-native run-android --port 8082
 
-## Contribuer
+## 🤝 Contribuer
 
 Les contributions sont les bienvenues ! Merci de soumettre une pull request pour toute amélioration ou correction.
 
-## Licence
+## 📜 Licence
 
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
