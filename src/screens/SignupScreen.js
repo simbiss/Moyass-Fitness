@@ -20,7 +20,6 @@ export default function SignUpScreen({ navigation }) {
         email: email,
       });
 
-      // Optionally, navigate back to the login screen
       navigation.navigate('Login');
     } catch (err) {
       setError(err.message);
