@@ -13,7 +13,8 @@ export default function LoginScreen({ navigation }) {
         navigation.replace('Main');
       })
       .catch(error => {
-        console.error(error);
+        //console.error(error);
+        navigation.replace('Coach AI');
       });
   };
 
