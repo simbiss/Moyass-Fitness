@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Image, Text } from 'react-native'; 
+import { View, Image, Text } from 'react-native';
 import MainScreen from '../screens/HomeScreen';
-import StatsScreen from '../screens/SearchScreen';
+import SearchScreen from '../screens/SearchScreen';
 import CalendarScreen from '../screens/CalendarScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import CustomTabBarButton from './CustomTabBarButton'; 
+import CustomTabBarButton from './CustomTabBarButton';
 
 const Tab = createBottomTabNavigator();
 
@@ -58,8 +58,31 @@ function MainTabNavigator() {
       />
 
       <Tab.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 2 }}>
+              <Image
+                source={require('../assets/icons/stats.png')}
+                resizeMode="contain"
+                style={{
+                  width: 25,
+                  height: 25,
+                  tintColor: focused ? '#e32f45' : '#748c94',
+                }}
+              />
+              <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>
+                SEARCH
+              </Text>
+            </View>
+          ),
+        }}
+      />
+
+      <Tab.Screen
         name="Add"
-        component={MainScreen} 
+        component={MainScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
@@ -74,29 +97,6 @@ function MainTabNavigator() {
           ),
           tabBarButton: (props) => (
             <CustomTabBarButton {...props} />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="Stats"
-        component={StatsScreen}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={{ alignItems: 'center', justifyContent: 'center', top: 2 }}>
-              <Image
-                source={require('../assets/icons/stats.png')}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? '#e32f45' : '#748c94',
-                }}
-              />
-              <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>
-                STATS
-              </Text>
-            </View>
           ),
         }}
       />
