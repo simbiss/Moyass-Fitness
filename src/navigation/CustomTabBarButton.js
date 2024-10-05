@@ -7,7 +7,7 @@ const CustomTabBarButton = ({ children, onPress }) => {
   const [slideAnim] = useState(new Animated.Value(100));
   const [nom, setNom] = useState('');
   const [date, setDate] = useState('');
-  const [cptPeak, setCptPeak] = useState({});
+  const [cptValue, setCptValue] = useState({});
 
   const toggleOverlay = () => {
     if (isVisible) {
@@ -49,15 +49,15 @@ const CustomTabBarButton = ({ children, onPress }) => {
     }).start(() => setIsVisible(false));
   };
 
-  const saveInteraction = () => {
-    const interaction = {
+  const saveTrainning = () => {
+    const trainning = {
       id: Date.now().toString(),
       date,
-      cptPeakPerName: {
-        [nom]: cptPeak,
+      cptTrainningPerName: {
+        [nom]: setCptValue,
       },
     };
-    console.log('Saved Interaction:', interaction);
+    console.log('Saved: ', trainning);
     toggleOverlay();
   };
 
@@ -121,11 +121,11 @@ const CustomTabBarButton = ({ children, onPress }) => {
                 />
                 <TextInput
                   style={styles.input}
-                  placeholder="cptPeak value"
+                  placeholder="value"
                   keyboardType="numeric"
-                  onChangeText={(value) => setCptPeak(parseInt(value))}
+                  onChangeText={(value) => setCptValue(parseInt(value))}
                 />
-                <TouchableOpacity style={styles.button} onPress={saveInteraction}>
+                <TouchableOpacity style={styles.button} onPress={saveTrainning}>
                   <Text style={styles.buttonText}>Save</Text>
                 </TouchableOpacity>
               </View>
