@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-import { Search, ChevronDown } from 'lucide-react-native';  // Install with npm install lucide-react-native
 
 const bodyPartList = [
   "back", "cardio", "chest", "lower arms", "lower legs", 
@@ -19,63 +18,79 @@ const SearchPage = () => {
   const [searchOption, setSearchOption] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const renderListItem = ({ item }) => (
+    <TouchableOpacity style={styles.listItem}>
+      <Text style={styles.listItemText}>{item}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Find Your Fitness Exercise</Text>
-
-      <View style={styles.inputContainer}>
+      <Text style={styles.title}>ELITE FITNESS</Text>
+      <Text style={styles.subtitle}>Precision Training Solutions</Text>
+      
+      <View style={styles.searchContainer}>
         <TextInput
-          placeholder="Search exercises..."
-          style={styles.input}
+          style={styles.searchInput}
+          placeholder="Search exercises"
+          placeholderTextColor="#A0AEC0"
         />
-        <Search color="#999" style={styles.searchIcon} />
+        {/* Replacing search icon with a simple magnifying glass character */}
+        <Text style={styles.searchIcon}>🔍</Text>
       </View>
-
+      
       <TouchableOpacity 
-        style={styles.dropdownButton} 
+        style={styles.dropdownButton}
         onPress={() => setIsDropdownOpen(!isDropdownOpen)}
       >
-        <Text>{searchOption || "Select search option"}</Text>
-        <ChevronDown style={isDropdownOpen ? styles.rotateIcon : styles.chevronIcon} />
+        <Text style={styles.dropdownButtonText}>
+          {searchOption || "Select search option"}
+        </Text>
+        {/* Replacing dropdown icon with a simple arrow character */}
+        <Text style={[styles.dropdownIcon, isDropdownOpen && styles.dropdownIconOpen]}>
+          ⌄
+        </Text>
       </TouchableOpacity>
-
+      
       {isDropdownOpen && (
-        <View style={styles.dropdownList}>
+        <View style={styles.dropdownMenu}>
           <TouchableOpacity 
+            style={styles.dropdownMenuItem}
             onPress={() => {
               setSearchOption('Body Parts');
               setIsDropdownOpen(false);
-            }} 
-            style={styles.dropdownItem}
+            }}
           >
-            <Text>Body Parts</Text>
+            {/* Replacing activity icon with a simple bullet point */}
+            <Text style={styles.dropdownMenuItemText}>• Body Parts</Text>
           </TouchableOpacity>
           <TouchableOpacity 
+            style={styles.dropdownMenuItem}
             onPress={() => {
               setSearchOption('Targeted Muscles');
               setIsDropdownOpen(false);
-            }} 
-            style={styles.dropdownItem}
+            }}
           >
-            <Text>Targeted Muscles</Text>
+            {/* Replacing target icon with a simple bullet point */}
+            <Text style={styles.dropdownMenuItemText}>• Targeted Muscles</Text>
           </TouchableOpacity>
         </View>
       )}
-
+      
       {searchOption && (
         <View style={styles.listContainer}>
           <Text style={styles.listTitle}>{searchOption}</Text>
           <FlatList
             data={searchOption === 'Body Parts' ? bodyPartList : targetList}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity style={styles.listItem}>
-                <Text>{item}</Text>
-              </TouchableOpacity>
-            )}
+            renderItem={renderListItem}
+            keyExtractor={(item) => item}
           />
         </View>
       )}
+      
+      <TouchableOpacity style={styles.ctaButton}>
+        <Text style={styles.ctaButtonText}>Begin Your Premium Workout</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -83,87 +98,118 @@ const SearchPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#FFFFFF',
+    padding: 20,
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-    padding: 16
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16
+    fontSize: 28,
+    fontWeight: '300',
+    marginBottom: 4,
+    color: '#1A202C',
   },
-  inputContainer: {
+  subtitle: {
+    fontSize: 14,
+    color: '#718096',
+    marginBottom: 40,
+  },
+  searchContainer: {
     width: '100%',
-    maxWidth: 400,
+    marginBottom: 20,
     position: 'relative',
   },
-  input: {
-    padding: 10,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#ccc',
+  searchInput: {
     width: '100%',
-    paddingRight: 40
+    backgroundColor: '#F7FAFC',
+    borderColor: '#E2E8F0',
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 12,
+    paddingRight: 40,
+    fontSize: 16,
+    color: '#1A202C',
   },
   searchIcon: {
     position: 'absolute',
-    right: 10,
-    top: 10,
+    right: 12,
+    top: 12,
+    fontSize: 20,
   },
   dropdownButton: {
-    marginTop: 16,
-    padding: 12,
-    backgroundColor: 'white',
-    borderRadius: 8,
     width: '100%',
-    maxWidth: 400,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#F7FAFC',
+    borderColor: '#E2E8F0',
     borderWidth: 1,
-    borderColor: '#ccc',
-  },
-  chevronIcon: {
-    marginLeft: 8,
-  },
-  rotateIcon: {
-    transform: [{ rotate: '180deg' }],
-    marginLeft: 8,
-  },
-  dropdownList: {
-    width: '100%',
-    maxWidth: 400,
-    backgroundColor: 'white',
     borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    marginTop: 8,
-  },
-  dropdownItem: {
     padding: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    marginBottom: 20,
+  },
+  dropdownButtonText: {
+    fontSize: 16,
+    color: '#718096',
+  },
+  dropdownIcon: {
+    fontSize: 20,
+    transform: [{ rotate: '0deg' }],
+  },
+  dropdownIconOpen: {
+    transform: [{ rotate: '180deg' }],
+  },
+  dropdownMenu: {
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E2E8F0',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 20,
+  },
+  dropdownMenuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12,
+  },
+  dropdownMenuItemText: {
+    marginLeft: 12,
+    fontSize: 16,
+    color: '#4A5568',
   },
   listContainer: {
-    marginTop: 16,
     width: '100%',
-    maxWidth: 400,
-    backgroundColor: 'white',
-    borderRadius: 8,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E2E8F0',
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderRadius: 8,
     padding: 12,
+    marginBottom: 20,
   },
   listTitle: {
-    fontWeight: 'bold',
-    marginBottom: 8
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#2D3748',
+    marginBottom: 12,
   },
   listItem: {
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+  },
+  listItemText: {
+    fontSize: 16,
+    color: '#4A5568',
+  },
+  ctaButton: {
+    backgroundColor: '#4299E1',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+  },
+  ctaButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '500',
   },
 });
 
 export default SearchPage;
-  
