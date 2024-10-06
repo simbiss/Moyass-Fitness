@@ -26,8 +26,7 @@ const SearchPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ELITE FITNESS</Text>
-      <Text style={styles.subtitle}>Precision Training Solutions</Text>
+      <Text style={styles.subtitle}>Look for exercises</Text>
       
       <View style={styles.searchContainer}>
         <TextInput
@@ -35,7 +34,6 @@ const SearchPage = () => {
           placeholder="Search exercises"
           placeholderTextColor="#A0AEC0"
         />
-        {/* Replacing search icon with a simple magnifying glass character */}
         <Text style={styles.searchIcon}>🔍</Text>
       </View>
       
@@ -46,7 +44,6 @@ const SearchPage = () => {
         <Text style={styles.dropdownButtonText}>
           {searchOption || "Select search option"}
         </Text>
-        {/* Replacing dropdown icon with a simple arrow character */}
         <Text style={[styles.dropdownIcon, isDropdownOpen && styles.dropdownIconOpen]}>
           ⌄
         </Text>
@@ -61,7 +58,6 @@ const SearchPage = () => {
               setIsDropdownOpen(false);
             }}
           >
-            {/* Replacing activity icon with a simple bullet point */}
             <Text style={styles.dropdownMenuItemText}>• Body Parts</Text>
           </TouchableOpacity>
           <TouchableOpacity 
@@ -71,7 +67,6 @@ const SearchPage = () => {
               setIsDropdownOpen(false);
             }}
           >
-            {/* Replacing target icon with a simple bullet point */}
             <Text style={styles.dropdownMenuItemText}>• Targeted Muscles</Text>
           </TouchableOpacity>
         </View>
@@ -89,7 +84,7 @@ const SearchPage = () => {
       )}
       
       <TouchableOpacity style={styles.ctaButton}>
-        <Text style={styles.ctaButtonText}>Begin Your Premium Workout</Text>
+        <Text style={styles.ctaButtonText}>Begin Workout</Text>
       </TouchableOpacity>
     </View>
   );
