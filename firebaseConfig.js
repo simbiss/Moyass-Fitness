@@ -1,15 +1,16 @@
 import { firebase } from '@react-native-firebase/app';
+import { FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, FIREBASE_DATABASE_URL, FIREBASE_STORAGE_BUCKET, FIREBASE_MESSAGING_SENDER_ID, FIREBASE_APP_ID} from '@env';
 import '@react-native-firebase/auth';
 import '@react-native-firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDdx4BT6T30By6giu3sjFBLNwLX46yf8us",
-  authDomain: "moyass-fitness.firebaseapp.com",
-  databaseURL: "https://moyass-fitness-default-rtdb.firebaseio.com",
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  databaseURL: FIREBASE_DATABASE_URL,
   projectId: "moyass-fitness",
-  storageBucket: "moyass-fitness.appspot.com",
-  messagingSenderId: "661874297486",
-  appId: "1:661874297486:web:11af1e5d180f082fedd7df",
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
+  appId: FIREBASE_APP_ID,
   measurementId: "G-GRTHGQNY17"
 };
 
